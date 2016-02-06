@@ -94,14 +94,16 @@ a.desc:after {
     display: none;
 }
 .item {
+    border: 1px solid #009;
     float: left;
-    padding-right: 20px;
-    margin: 10px 0 10px 0;
+    /*padding-right: 20px;*/
+    padding: 10px 5px;
+    margin: 10px 10px 10px 0;
 }
 .item img {
-    border: 1px solid #009;
+    /*border: 1px solid #009;*/
+    /*padding: 5px 5px;*/
     width: 160px;
-    padding: 5px 5px;
 }
 .ias-noneleft {
     float: left;

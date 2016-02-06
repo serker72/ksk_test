@@ -130,6 +130,25 @@ $script = <<< JS
         return false;
     }
     
+    //function DeleteImage(eventObject)
+    function DeleteImage(id)
+    {
+        //var target = eventObject.target;
+        //console.log('DeleteImage id - ' + target.dataset.id);
+        console.log('DeleteImage id - ' + id);
+        jQuery.ajax({
+           url: '/delete',
+           //data: {id: '<id>', 'other': '<other>'},
+           //data: {id: target.dataset.id},
+           data: {id: id},
+           success: function(data) {
+                // process data
+                jQuery.pjax.reload({container:'#listview-images'});  //Reload GridView
+           }
+        });        
+        return false;
+    }
+    
     function completeDropzoneEvents(file)
     {
         console.log('completeDropzoneEvents - ' + file);
@@ -155,6 +174,7 @@ $script1 = <<< JS
     jQuery("#add-images-button").click(function (eventObject) { ShowAddImages(eventObject); });
     jQuery("#refresh-images-button").click(function (eventObject) { RefreshImages(eventObject); });
     jQuery("#clear-images-button").click(function (eventObject) { ClearImages(eventObject); });
+    //jQuery(".delete-image-button").click(function (eventObject) { DeleteImage(eventObject); });
 JS;
 
 $this->registerJs($script, yii\web\View::POS_END);
